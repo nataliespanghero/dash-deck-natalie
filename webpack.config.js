@@ -54,7 +54,8 @@ module.exports = (env, argv) => {
             path: path.resolve(__dirname, dashLibraryName),
             filename,
             library: dashLibraryName,
-            libraryTarget: 'window',
+            libraryTarget: 'umd',
+            umdNamedDefine: true
         },
         devtool,
         externals,
@@ -62,8 +63,12 @@ module.exports = (env, argv) => {
             rules: [
                 {
                     test: /\.jsx?$/,
-                    exclude: /node_modules/,
-                    use: {
+                    include: [
+                        path.resolve(__dirname, 'src'),
+                        path.resolve(__dirname, 'node_modules/@deck.gl'),
+                        path.resolve(__dirname, 'node_modules/@luma.gl'),
+                      ],
+                      use: {
                         loader: 'babel-loader',
                     },
                 },

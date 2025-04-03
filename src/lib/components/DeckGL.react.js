@@ -84,7 +84,7 @@ export default class DeckGL extends React.Component {
 
   render() {
     let {enableEvents, data} = this.props;
-    const {id, mapboxKey, tooltip, style} = this.props;
+    const {id, mapboxKey, tooltip, style, spec} = this.props;
     const getTooltip = makeTooltip(tooltip);
 
     // ******* PARSE AND CONVERT JSON *******
@@ -143,6 +143,7 @@ export default class DeckGL extends React.Component {
             getTooltip={getTooltip}
             style={style}
             {...deckProps}
+            {...spec}
         >
           {staticMap}
         </Deck>
@@ -175,6 +176,8 @@ DeckGL.propTypes = {
      * Custom CSS for your map. This is useful for changing the height, width, and sometimes the background color.
      */
     style: PropTypes.object,
+
+    spec: PropTypes.object,
 
     /**
      * Either a boolean indicating if all event callbacks should be enabled, or a list of strings
@@ -284,4 +287,6 @@ DeckGL.propTypes = {
      * to Dash, to make them available for callbacks.
      */
     setProps: PropTypes.func
+
+
 };
