@@ -1,14 +1,17 @@
 {
-  "presets": [["@babel/preset-env", { "modules": "commonjs" }] "@babel/preset-react"],
+  "presets": [
+    ["@babel/preset-env", { "modules": "commonjs" }],
+    "@babel/preset-react"
+  ],
   "env": {
-      "production": {
-          "plugins": ["@babel/plugin-proposal-object-rest-spread"]
-      },
-      "development": {
-          "plugins": ["@babel/plugin-proposal-object-rest-spread"]
-      },
-      "test": {
-          "plugins": ["@babel/plugin-proposal-object-rest-spread"]
-      }
+    "production": {
+      "plugins": ["@babel/plugin-proposal-object-rest-spread"]
+    },
+    "development": {
+      "plugins": ["@babel/plugin-proposal-object-rest-spread"]
+    },
+    "test": {
+      "plugins": ["@babel/plugin-proposal-object-rest-spread"]
+    }
   }
 }
